@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:util="http://www.springframework.org/schema/util"
+	   xmlns:aop="http://www.springframework.org/schema/aop"
+	   xmlns:task="http://www.springframework.org/schema/task"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context.xsd
+	  http://www.springframework.org/schema/util 
+	  http://www.springframework.org/schema/util/spring-util-3.0.xsd
+	  http://www.springframework.org/schema/aop     
+      http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+      http://www.springframework.org/schema/task
+      http://www.springframework.org/schema/task/spring-task.xsd">
+      
+   	<context:annotation-config />
+	<task:annotation-driven/>
+   	
+   	<!--配置事务的xml被初始化到了spring根容器中，如果business初始化到springmvc容器中，事务类
+   		无法看见下级容器中的业务层。测试业务层的事务处理将会失效。
+   		这里存在三个容器，web容器，spring容器和servlet容器，上级容器无法使用下级容器的bean-->
+   	<context:component-scan base-package="com.changingpay.dbop.business" />
+	<bean id="taska" class="com.changingpay.dbop.task.TaskA"/>
+
+	<task:scheduled-tasks>
+		<task:scheduled ref="taska" method="print" cron="*/5 * * * * ?"/>
+	</task:scheduled-tasks>
+
+	<!-- Freemarker配置 -->
+	<bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath" value="/WEB-INF/view/" />
+		<property name="freemarkerSettings">
+			<props>
+				<prop key="template_update_delay">0</prop>
+				<prop key="default_encoding">UTF-8</prop>
+				<prop key="number_format">0.##########</prop>
+				<prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+				<prop key="classic_compatible">true</prop>
+				<prop key="template_exception_handler">ignore</prop>
+			</props>
+		</property>
+	</bean>
+</beans>
