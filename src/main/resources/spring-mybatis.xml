@@ -39,13 +39,13 @@
 	<!-- 自动扫描mapping.xml文件  -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
-		<property name="typeAliasesPackage" value="com.changingpay.dbop.model" />
-		<property name="mapperLocations" value="classpath*:mapper/*.xml" />
+		<property name="typeAliasesPackage" value="com.changingpay.tspring.model" />
+		<property name="mapperLocations" value="classpath:mapper/*.xml" />
 	</bean>
 	
 	<!-- spring与mybatis整合配置，扫描所有dao -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.changingpay.dbop.dao" />
+		<property name="basePackage" value="com.changingpay.tspring.dao" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 	

@@ -21,8 +21,8 @@
    	<!--配置事务的xml被初始化到了spring根容器中，如果business初始化到springmvc容器中，事务类
    		无法看见下级容器中的业务层。测试业务层的事务处理将会失效。
    		这里存在三个容器，web容器，spring容器和servlet容器，上级容器无法使用下级容器的bean-->
-   	<context:component-scan base-package="com.changingpay.dbop.business" />
-	<bean id="taska" class="com.changingpay.dbop.task.TaskA"/>
+   	<context:component-scan base-package="com.changingpay.tspring.business" />
+	<bean id="taska" class="com.changingpay.tspring.task.TaskA"/>
 
 	<task:scheduled-tasks>
 		<task:scheduled ref="taska" method="print" cron="*/5 * * * * ?"/>
