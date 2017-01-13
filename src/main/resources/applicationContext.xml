@@ -22,6 +22,7 @@
    		无法看见下级容器中的业务层。测试业务层的事务处理将会失效。
    		这里存在三个容器，web容器，spring容器和servlet容器，上级容器无法使用下级容器的bean-->
    	<context:component-scan base-package="com.changingpay.tspring.business" />
+	<context:component-scan base-package="com.changingpay.tspring.thread" />
 	<bean id="taska" class="com.changingpay.tspring.task.TaskA"/>
 
 	<task:scheduled-tasks>
