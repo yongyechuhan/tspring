@@ -47,7 +47,7 @@ public class BaseController {
 		try {
 			InputStream ins = new FileInputStream(portalLog);
 			byte[] tempArray = new byte[1024];
-			
+
 			OutputStream ops = resp.getOutputStream();
 			while(ins.read(tempArray) != -1){
 				ops.write(tempArray);
