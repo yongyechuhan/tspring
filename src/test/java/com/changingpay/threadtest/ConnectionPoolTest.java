@@ -17,7 +17,7 @@ public class ConnectionPoolTest {
 
     @Test
     public void testConnectionPool() throws InterruptedException {
-        int threadCount = 10;
+        int threadCount = 50;
         end = new CountDownLatch(threadCount);
         int count = 20;
         AtomicInteger got = new AtomicInteger();
