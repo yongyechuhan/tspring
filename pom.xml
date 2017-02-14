@@ -235,7 +235,7 @@
             </activation>
             <properties>
                 <!-- jdbc配置 -->
-                <jdbc.url>jdbc:mysql://192.168.160.133:3306/gzdb?useUnicode=true&amp;characterEncoding=UTF-8</jdbc.url>
+                <jdbc.url>jdbc:mysql://192.168.160.131:3306/gzdb?useUnicode=true&amp;characterEncoding=UTF-8</jdbc.url>
                 <jdbc.username>gzuser</jdbc.username>
                 <jdbc.password>gzuser</jdbc.password>
 

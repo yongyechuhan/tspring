@@ -26,7 +26,12 @@ public class BuyTicket{
 		authInfo.setAuthDesc("test");
 		authInfo.setStatus("0");
 
-		return authInfoMapper.insertSelective(authInfo);
+		authInfoMapper.insertSelective(authInfo);
+		return 0;
+	}
+
+	public int deleteRole(){
+		return authInfoMapper.deleteByPrimaryKey("666666");
 	}
 
 	public static int getI() {
