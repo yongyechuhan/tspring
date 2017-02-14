@@ -3,6 +3,7 @@ package com.changingpay.daotest;
 import com.changingpay.tspring.business.BuyTicket;
 import com.changingpay.tspring.dao.TAuthorityAuthInfoMapper;
 import com.changingpay.tspring.model.TAuthorityAuthInfo;
+import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -18,6 +19,10 @@ import org.springframework.transaction.annotation.Transactional;
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath*:applicationContext.xml","classpath*:spring-mybatis.xml"})
 public class TransactionTest {
+
+    private static final Log log =
+            LogFactory.getLog(TransactionTest.class);
+
     @Autowired
     private TAuthorityAuthInfoMapper authInfoMapper;
 
@@ -27,16 +32,20 @@ public class TransactionTest {
     @Test
     @Transactional(propagation= Propagation.REQUIRED)
     public void getAuthInfo(){
-        buyTicket.insertRole();
-
-            TAuthorityAuthInfo authInfo =
-                    new TAuthorityAuthInfo();
-            authInfo.setAuthId("100000");
-            authInfo.setStatus("1");
-            authInfo.setAuthDesc("测试事务");
-            authInfoMapper.insert(authInfo);
-            System.out.println(authInfo.getAuthDesc());
-            //buyTicket.deleteRole();
+        buyTicket.getAuthInfo("100000");
+        try {
+            buyTicket.insertRole();
+        }catch(Exception e){
+            log.error(e.getMessage());
+        }
+//            TAuthorityAuthInfo authInfo =
+//                    new TAuthorityAuthInfo();
+//            authInfo.setAuthId("100000");
+//            authInfo.setStatus("1");
+//            authInfo.setAuthDesc("测试事务");
+//            authInfoMapper.insert(authInfo);
+//            System.out.println(authInfo.getAuthDesc());
+//            buyTicket.deleteRole();
 
     }
 }
