@@ -30,7 +30,7 @@ public class BaseController {
 	@RequestMapping("/login/testLogin.do")
 	@ResponseBody
 	public void print(){
-		LogFactory.getLog(BaseController.class).info(buyTicket.insertRole());
+		LogFactory.getLog(BaseController.class).info(buyTicket.insert666());
 	}
 	
 	@RequestMapping("/login/login.do")

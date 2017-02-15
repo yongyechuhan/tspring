@@ -2,7 +2,6 @@ package com.changingpay.daotest;
 
 import com.changingpay.tspring.business.BuyTicket;
 import com.changingpay.tspring.dao.TAuthorityAuthInfoMapper;
-import com.changingpay.tspring.model.TAuthorityAuthInfo;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
@@ -10,8 +9,8 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
+
+import java.util.concurrent.CountDownLatch;
 
 /**
  * Created by 公司 on 2017/2/14.
@@ -30,22 +29,18 @@ public class TransactionTest {
     private BuyTicket buyTicket;
 
     @Test
-    @Transactional(propagation= Propagation.REQUIRED)
     public void getAuthInfo(){
-        buyTicket.getAuthInfo("100000");
+        Thread t = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                buyTicket.insert666();
+            }
+        });
+        t.start();
         try {
-            buyTicket.insertRole();
-        }catch(Exception e){
-            log.error(e.getMessage());
+            t.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
         }
-//            TAuthorityAuthInfo authInfo =
-//                    new TAuthorityAuthInfo();
-//            authInfo.setAuthId("100000");
-//            authInfo.setStatus("1");
-//            authInfo.setAuthDesc("测试事务");
-//            authInfoMapper.insert(authInfo);
-//            System.out.println(authInfo.getAuthDesc());
-//            buyTicket.deleteRole();
-
     }
 }
