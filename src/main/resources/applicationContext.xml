@@ -23,11 +23,12 @@
    		这里存在三个容器，web容器，spring容器和servlet容器，上级容器无法使用下级容器的bean-->
    	<context:component-scan base-package="com.changingpay.tspring.business" />
 	<context:component-scan base-package="com.changingpay.tspring.thread" />
+	<!--
 	<bean id="taska" class="com.changingpay.tspring.task.TaskA"/>
 
 	<task:scheduled-tasks>
 		<task:scheduled ref="taska" method="print" cron="*/5 * * * * ?"/>
-	</task:scheduled-tasks>
+	</task:scheduled-tasks> -->
 
 	<!-- Freemarker配置 -->
 	<bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
@@ -42,5 +43,14 @@
 				<prop key="template_exception_handler">ignore</prop>
 			</props>
 		</property>
+	</bean>
+
+	<!-- 线程池配置-->
+	<bean id ="taskExecutor"
+		  class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor" >
+		<property name ="corePoolSize" value ="50" />
+		<property name ="keepAliveSeconds" value ="300" />
+		<property name ="maxPoolSize" value ="100" />
+		<property name ="queueCapacity" value ="100" />
 	</bean>
 </beans>

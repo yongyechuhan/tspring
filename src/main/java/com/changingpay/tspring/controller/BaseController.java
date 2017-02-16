@@ -1,12 +1,11 @@
 package com.changingpay.tspring.controller;
 
-import com.changingpay.tspring.business.BuyTicket;
+import com.changingpay.tspring.business.MessageServer;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
@@ -19,19 +18,13 @@ import java.io.OutputStream;
 public class BaseController {
 	
 	@Autowired
-	private BuyTicket  buyTicket;
+	private MessageServer buyTicket;
 	
 	@Value("#{file_resource.portal_log}")
 	private String fileResource;
 	
 	@Value("#{file_resource.out_dir}")
 	private String outDir;
-	
-	@RequestMapping("/login/testLogin.do")
-	@ResponseBody
-	public void print(){
-		LogFactory.getLog(BaseController.class).info(buyTicket.insert666());
-	}
 	
 	@RequestMapping("/login/login.do")
 	public ModelAndView login(){
