@@ -3,6 +3,7 @@ package com.changingpay.daotest;
 import com.changingpay.tspring.business.AuthInfoBusi;
 import com.changingpay.tspring.business.MessageClient;
 import com.changingpay.tspring.business.MessageServer;
+import com.changingpay.tspring.business.NIOBusi;
 import com.changingpay.tspring.dao.TAuthorityAuthInfoMapper;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -109,5 +110,13 @@ public class TransactionTest {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 测试NIO读取文件
+     */
+    @Test
+    public void getResource(){
+        new NIOBusi().readResources("file_resource.properties");
     }
 }
