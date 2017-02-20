@@ -12,8 +12,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.nio.ByteBuffer;
-import java.nio.channels.SocketChannel;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CountDownLatch;
@@ -46,13 +44,13 @@ public class MessageServer{
 
     private static class NestProcess implements Runnable{
 		private Socket socket;
-		private SocketChannel input;
+		private InputStream input;
 		private OutputStream output;
 
 		NestProcess(Socket socket){
 			this.socket = socket;
 			try {
-				input = socket.getChannel();
+				input = socket.getInputStream();
 				output = socket.getOutputStream();
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -61,16 +59,13 @@ public class MessageServer{
 
         @Override
         public void run() {
-            ByteBuffer buffer = ByteBuffer.allocate(48);
+            byte[] mess = new byte[2048];
+            StringBuilder s = new StringBuilder("");
             int rc;
             try {
-                while(input.read(buffer) != -1){
-                    buffer.flip();
-                    while(buffer.hasRemaining()){
-                        System.out.print((char)buffer.get());
-                    }
-                    buffer.clear();
-                }
+                input.read(mess);
+                s.append(new String(mess));
+                logging.info("接收到信息："+s);
                 synchronized (MessageServer.class) {
                     count.countDown();
                     System.out.println("当前剩余 "+count.getCount());
