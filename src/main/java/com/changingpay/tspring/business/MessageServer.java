@@ -1,8 +1,8 @@
 package com.changingpay.tspring.business;
 
-import com.alibaba.druid.support.logging.Log;
-import com.alibaba.druid.support.logging.LogFactory;
 import com.changingpay.tspring.dao.TAuthorityAuthInfoMapper;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.stereotype.Service;

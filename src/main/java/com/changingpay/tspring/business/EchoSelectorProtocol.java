@@ -2,7 +2,6 @@ package com.changingpay.tspring.business;
 
 import com.changingpay.tspring.business.iface.TCPProtocol;
 import org.apache.commons.logging.Log;
-import sun.io.ByteToCharUnicodeBigUnmarked;
 
 import java.io.IOException;
 import java.nio.ByteBuffer;
