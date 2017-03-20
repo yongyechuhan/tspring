@@ -16,7 +16,6 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 import java.util.concurrent.CountDownLatch;
 
-@Service
 public class MessageServer{
 	@Autowired
 	private TAuthorityAuthInfoMapper authInfoMapper;

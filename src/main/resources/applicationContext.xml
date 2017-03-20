@@ -23,6 +23,7 @@
    		这里存在三个容器，web容器，spring容器和servlet容器，上级容器无法使用下级容器的bean-->
    	<context:component-scan base-package="com.changingpay.tspring.business" />
 	<context:component-scan base-package="com.changingpay.tspring.thread" />
+	<context:component-scan base-package="com.changingpay.tspring.netty" />
 	<!--
 	<bean id="taska" class="com.changingpay.tspring.task.TaskA"/>
 
@@ -53,4 +54,7 @@
 		<property name ="maxPoolSize" value ="100" />
 		<property name ="queueCapacity" value ="100" />
 	</bean>
+
+	<!--注入配置文件-->
+	<util:properties id="serverPortConfig" location="classpath:server_port.properties"/>
 </beans>
