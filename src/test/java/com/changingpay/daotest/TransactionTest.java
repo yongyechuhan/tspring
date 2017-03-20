@@ -1,5 +1,6 @@
 package com.changingpay.daotest;
 
+import com.changingpay.base.LoadTestConfig;
 import com.changingpay.tspring.business.AuthInfoBusi;
 import com.changingpay.tspring.business.MessageClient;
 import com.changingpay.tspring.business.MessageServer;
@@ -20,9 +21,7 @@ import java.net.Socket;
 /**
  * Created by 公司 on 2017/2/14.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath*:applicationContext.xml","classpath*:spring-mybatis.xml"})
-public class TransactionTest {
+public class TransactionTest extends LoadTestConfig{
 
     @Autowired
     private ThreadPoolTaskExecutor taskExecutor;
