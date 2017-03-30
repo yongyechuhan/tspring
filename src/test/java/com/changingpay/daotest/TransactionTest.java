@@ -1,5 +1,6 @@
 package com.changingpay.daotest;
 
+import com.changingpay.base.LoadTestConfig;
 import com.changingpay.tspring.business.AuthInfoBusi;
 import com.changingpay.tspring.business.MessageClient;
 import com.changingpay.tspring.business.MessageServer;
@@ -14,12 +15,14 @@ import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.io.IOException;
+import java.net.Socket;
+
 /**
  * Created by 公司 on 2017/2/14.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath*:applicationContext.xml","classpath*:spring-mybatis.xml"})
-public class TransactionTest {
+public class TransactionTest extends LoadTestConfig{
+
     @Autowired
     private ThreadPoolTaskExecutor taskExecutor;
 
