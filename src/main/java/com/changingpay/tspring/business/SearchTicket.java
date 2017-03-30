@@ -1,11 +1,25 @@
 package com.changingpay.tspring.business;
+import com.changingpay.tspring.util.HttpsProtocolSocketFactory;
 import com.google.gson.Gson;
+import org.apache.commons.httpclient.ConnectTimeoutException;
+import org.apache.commons.httpclient.HttpClient;
+import org.apache.commons.httpclient.methods.GetMethod;
+import org.apache.commons.httpclient.params.HttpConnectionParams;
+import org.apache.commons.httpclient.protocol.Protocol;
+import org.apache.commons.httpclient.protocol.ProtocolSocketFactory;
 import org.apache.commons.logging.Log;
 
+import javax.net.ssl.SSLContext;
+import javax.net.ssl.TrustManager;
+import javax.net.ssl.X509TrustManager;
 import java.io.BufferedInputStream;
 import java.io.IOException;
-import java.net.URL;
-import java.net.URLConnection;
+import java.net.*;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -16,6 +30,12 @@ import java.util.Set;
 public class SearchTicket extends AbsBusi{
     private static Log logger = AbsBusi.getLog(SearchTicket.class);
 
+    /**
+     * http请求
+     * @param url
+     * @param param
+     * @return
+     */
     public static String sendGet(String url, String param){
         BufferedInputStream bufferInput = null;
         try {
@@ -63,6 +83,28 @@ public class SearchTicket extends AbsBusi{
                     logger.error("服务器输入流关闭失败！", e);
                 }
             }
+        }
+    }
+
+    /**
+     * https请求
+     */
+    public static String sendByHttps(String keyFilePath, String keyPasswd, String url){
+        String serverResp = "";
+        Protocol https = new Protocol("https",
+                new HttpsProtocolSocketFactory(keyFilePath, keyPasswd), 443);
+        Protocol.registerProtocol("https", https);
+        GetMethod get = new GetMethod(url);
+        HttpClient client = new HttpClient();
+        try{
+            client.executeMethod(get);
+            serverResp = get.getResponseBodyAsString();
+            //serverResp = new String(serverResp.getBytes("ISO-8859-1"), "UTF-8");
+            Protocol.unregisterProtocol("https");
+            return serverResp;
+        }catch (Exception e){
+            logger.error("获取服务器响应失败！", e);
+            return "error";
         }
     }
 }
