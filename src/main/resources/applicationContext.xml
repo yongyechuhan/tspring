@@ -21,15 +21,22 @@
    	<!--配置事务的xml被初始化到了spring根容器中，如果business初始化到springmvc容器中，事务类
    		无法看见下级容器中的业务层。测试业务层的事务处理将会失效。
    		这里存在三个容器，web容器，spring容器和servlet容器，上级容器无法使用下级容器的bean-->
-   	<context:component-scan base-package="com.changingpay.tspring.business" />
-	<context:component-scan base-package="com.changingpay.tspring.thread" />
-	<context:component-scan base-package="com.changingpay.tspring.netty" />
+   	<context:component-scan base-package="com.changingpay.tspring.business.activemq" />
+	<!--<context:component-scan base-package="com.changingpay.tspring.thread" />-->
+	<!--<context:component-scan base-package="com.changingpay.tspring.netty" />-->
 	<!--
 	<bean id="taska" class="com.changingpay.tspring.task.TaskA"/>
 
 	<task:scheduled-tasks>
 		<task:scheduled ref="taska" method="print" cron="*/5 * * * * ?"/>
 	</task:scheduled-tasks> -->
+
+	<!-- activeMq -->
+	<bean id = "absJMSMess" class="com.changingpay.tspring.business.activemq.AbstractJmsMess">
+		<property name="activemqUser" value="admin"/>
+		<property name="activemqPwd" value="admin"/>
+		<property name="activemqUrl" value="tcp://192.168.0.106:61616"/>
+	</bean>
 
 	<!-- Freemarker配置 -->
 	<bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">

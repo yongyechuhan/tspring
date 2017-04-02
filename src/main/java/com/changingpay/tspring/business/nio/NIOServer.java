@@ -1,5 +1,7 @@
-package com.changingpay.tspring.business;
+package com.changingpay.tspring.business.nio;
 
+import com.changingpay.tspring.business.AbsBusi;
+import com.changingpay.tspring.business.EchoSelectorProtocol;
 import com.changingpay.tspring.business.iface.TCPProtocol;
 import org.apache.commons.logging.Log;
 import org.springframework.stereotype.Service;
@@ -15,7 +17,7 @@ import java.util.Iterator;
  * Created by 公司 on 2017/2/20.
  */
 @Service
-public class NIOServer extends AbsBusi{
+public class NIOServer extends AbsBusi {
 
     private Log log = AbsBusi.getLog(NIOServer.class);
 

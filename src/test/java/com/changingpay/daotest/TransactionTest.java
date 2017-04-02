@@ -4,19 +4,13 @@ import com.changingpay.base.LoadTestConfig;
 import com.changingpay.tspring.business.AuthInfoBusi;
 import com.changingpay.tspring.business.MessageClient;
 import com.changingpay.tspring.business.MessageServer;
-import com.changingpay.tspring.business.NIOBusi;
+import com.changingpay.tspring.business.nio.NIOBusi;
 import com.changingpay.tspring.dao.TAuthorityAuthInfoMapper;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-
-import java.io.IOException;
-import java.net.Socket;
 
 /**
  * Created by 公司 on 2017/2/14.

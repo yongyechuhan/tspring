@@ -1,5 +1,6 @@
-package com.changingpay.tspring.business;
+package com.changingpay.tspring.business.nio;
 
+import com.changingpay.tspring.business.AbsBusi;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 
@@ -12,7 +13,7 @@ import java.nio.channels.FileChannel;
 /**
  * Created by 公司 on 2017/2/17.
  */
-public class NIOBusi extends AbsBusi{
+public class NIOBusi extends AbsBusi {
 
     private static final Log logging =
             AbsBusi.getLog(NIOBusi.class);

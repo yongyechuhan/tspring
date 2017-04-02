@@ -21,7 +21,7 @@ public class SearchTicketTest {
         String filepath = "E:\\cer\\12306key.keystore";
         String keypasswd = "152346";
         String severResponse = SearchTicket.sendByHttps(filepath, keypasswd, "https://kyfw.12306.cn/otn/leftTicket/queryX?" +
-                "leftTicketDTO.train_date=2017-03-30&leftTicketDTO.from_station=BJP&leftTicketDTO.to_station=SHH&purpose_codes=ADULT");
+                "leftTicketDTO.train_date=2017-04-01&leftTicketDTO.from_station=BJP&leftTicketDTO.to_station=SHH&purpose_codes=ADULT");
         logger.info(severResponse);
         JSONObject jsonObject = JSONObject.fromObject(severResponse);
         JSONArray array = (JSONArray) jsonObject.get("data");

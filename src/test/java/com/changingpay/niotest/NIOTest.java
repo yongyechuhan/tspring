@@ -1,7 +1,7 @@
 package com.changingpay.niotest;
 
-import com.changingpay.tspring.business.NIOClient;
-import com.changingpay.tspring.business.NIOServer;
+import com.changingpay.tspring.business.nio.NIOClient;
+import com.changingpay.tspring.business.nio.NIOServer;
 import org.junit.Test;
 
 import java.io.IOException;
