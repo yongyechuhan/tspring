@@ -139,7 +139,7 @@ public class NettyTest{
 
     @Test
     public void test(){
-        int[] array = {4, 13, 5, 17, 19};
+        int[] array = {4,13,5,17};
         System.out.println(new Gson().toJson(sortArray(array)));
     }
 }
