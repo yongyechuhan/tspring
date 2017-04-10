@@ -59,7 +59,7 @@
 		<property name ="corePoolSize" value ="50" />
 		<property name ="keepAliveSeconds" value ="300" />
 		<property name ="maxPoolSize" value ="100" />
-		<property name ="queueCapacity" value ="100" />
+		<property name ="queueCapacity" value ="5000" />
 	</bean>
 
 	<!--注入配置文件-->
