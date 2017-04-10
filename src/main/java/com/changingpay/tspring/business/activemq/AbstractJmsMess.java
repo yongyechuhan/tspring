@@ -4,7 +4,9 @@ import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
+import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
+import javax.jms.JMSException;
 
 /**
  * Created by Liuxin on 2017/4/2.
@@ -19,7 +21,7 @@ public class AbstractJmsMess {
 
     private static String activemqUrl;
 
-    public static ConnectionFactory getConnFactory(){
+    private static ConnectionFactory getConnFactory(){
         return NestClass.connFactory;
     }
 
@@ -33,6 +35,19 @@ public class AbstractJmsMess {
                 logger.error("获取ActiveMQ工厂失败！", e);
             }
         }
+    }
+
+    protected static Connection getConnection(){
+        ConnectionFactory connectionFactory = getConnFactory();
+        if(connectionFactory != null){
+            try {
+                Connection connection = connectionFactory.createConnection();
+                return connection;
+            } catch (JMSException e) {
+                logger.error("创建ActiveMQ连接失败！", e);
+            }
+        }
+        return null;
     }
 
     public void setActivemqUser(String activemqUser) {

@@ -28,22 +28,27 @@ public class JmsMessServer extends AbstractJmsMess{
     @Autowired
     private ThreadPoolTaskExecutor taskExecutor;
 
+    // 发送或接收消息的线程
+    private Session session;
+
+    // 消息的目的地
+    private Destination destination;
+
+    // 消息发送者
+    private MessageProducer producer;
+
+
     public JmsMessServer(){
         super();
     }
 
-    public void init(){
-        // 发送或接收消息的线程
-        Session session;
-        // 消息的目的地
-        Destination destination;
-        // 消息发送者
-        MessageProducer producer;
-
-        ConnectionFactory connFactory = AbstractJmsMess.getConnFactory();
+    /**
+     * 点对点发送接收模式
+     */
+    public void initP2PServer(){
+        Connection connection = AbstractJmsMess.getConnection();
         try {
-            Connection connection = connFactory.createConnection();
-            connection.start();
+            if(connection != null) connection.start();
             session =
                     connection.createSession(Boolean.TRUE, Session.AUTO_ACKNOWLEDGE);
             destination = session.createQueue("LG_MessQueue");
@@ -57,6 +62,27 @@ public class JmsMessServer extends AbstractJmsMess{
             }
         } catch (JMSException e) {
             logger.error("创建ActiveMQ连接失败！", e);
+        } finally {
+            realaseConnection(connection);
+        }
+    }
+
+    /**
+     * 发布者订阅者模式
+     */
+    public void  initPublisher(){
+        Connection connection = AbstractJmsMess.getConnection();
+        try {
+            if(connection != null) connection.start();
+            Session session = connection.createSession(Boolean.TRUE, Session.AUTO_ACKNOWLEDGE);
+            Destination destination = session.createTopic("LG_TOPIC");
+            MessageProducer producer = session.createProducer(destination);
+            producer.setDeliveryMode(DeliveryMode.NON_PERSISTENT);
+            sendMessage(session, producer);
+        } catch (JMSException e) {
+            logger.error("创建ActiveMQ连接失败！", e);
+        } finally {
+            realaseConnection(connection);
         }
     }
 
@@ -95,6 +121,15 @@ public class JmsMessServer extends AbstractJmsMess{
                 countDownLatch.countDown();
                 lock.unlock();
             }
+        }
+    }
+
+    private void realaseConnection(Connection connection){
+        while(countDownLatch.getCount() > 0){}
+        try {
+            if(connection != null)  connection.close();
+        } catch (JMSException e) {
+            logger.error("释放链接资源失败！", e);
         }
     }
 }

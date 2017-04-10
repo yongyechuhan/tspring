@@ -21,17 +21,46 @@ public class TestActiveMQ extends LoadTestConfig {
         Thread serverThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                jmsMessServer.init();
+                jmsMessServer.initP2PServer();
             }
         });
         Thread clientThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                jmsMessClient.initClient();
+                jmsMessClient.initP2PClient();
             }
         });
         serverThread.start();
         clientThread.start();
+        try {
+            serverThread.join();
+            clientThread.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Test
+    public void testPublishSubMess(){
+        Thread serverThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                jmsMessServer.initPublisher();
+            }
+        });
+        Thread clientThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                jmsMessClient.initSubscribe();
+            }
+        });
+        clientThread.start();
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        serverThread.start();
         try {
             serverThread.join();
             clientThread.join();
