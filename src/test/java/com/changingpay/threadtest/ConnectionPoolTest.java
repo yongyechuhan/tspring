@@ -1,6 +1,6 @@
 package com.changingpay.threadtest;
 
-import com.changingpay.tspring.thread.ConnectionPool;
+import com.liuxin.tspring.thread.ConnectionPool;
 import com.mysql.jdbc.Connection;
 import org.junit.Test;
 

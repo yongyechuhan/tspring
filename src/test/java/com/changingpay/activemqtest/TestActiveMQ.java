@@ -1,8 +1,8 @@
 package com.changingpay.activemqtest;
 
 import com.changingpay.base.LoadTestConfig;
-import com.changingpay.tspring.business.activemq.JmsMessClient;
-import com.changingpay.tspring.business.activemq.JmsMessServer;
+import com.liuxin.tspring.business.activemq.JmsMessClient;
+import com.liuxin.tspring.business.activemq.JmsMessServer;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 

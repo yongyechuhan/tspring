@@ -1,11 +1,11 @@
 package com.changingpay.daotest;
 
 import com.changingpay.base.LoadTestConfig;
-import com.changingpay.tspring.business.AuthInfoBusi;
-import com.changingpay.tspring.business.MessageClient;
-import com.changingpay.tspring.business.MessageServer;
-import com.changingpay.tspring.business.nio.NIOBusi;
-import com.changingpay.tspring.dao.TAuthorityAuthInfoMapper;
+import com.liuxin.tspring.business.AuthInfoBusi;
+import com.liuxin.tspring.business.MessageClient;
+import com.liuxin.tspring.business.MessageServer;
+import com.liuxin.tspring.business.nio.NIOBusi;
+import com.liuxin.tspring.dao.TAuthorityAuthInfoMapper;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.junit.Test;

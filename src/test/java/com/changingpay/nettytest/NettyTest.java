@@ -2,13 +2,11 @@ package com.changingpay.nettytest;
 
 import com.alibaba.druid.support.logging.Log;
 import com.alibaba.druid.support.logging.LogFactory;
-import com.changingpay.base.LoadTestConfig;
-import com.changingpay.tspring.netty.TimeClient;
-import com.changingpay.tspring.netty.TimeServer;
+import com.liuxin.tspring.netty.TimeClient;
+import com.liuxin.tspring.netty.TimeServer;
 import com.google.gson.Gson;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 
 import java.util.ArrayList;

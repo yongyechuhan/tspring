@@ -1,6 +1,6 @@
 package com.changingpay.jedistest;
 
-import com.changingpay.tspring.business.jedis.JedisFunction;
+import com.liuxin.tspring.business.jedis.JedisFunction;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

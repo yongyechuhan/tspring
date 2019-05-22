@@ -1,6 +1,6 @@
 package com.changingpay.threadtest;
 
-import com.changingpay.tspring.thread.ConcurrentLinkedQueueTest;
+import com.liuxin.tspring.thread.ConcurrentLinkedQueueTest;
 import org.junit.Test;
 import org.springframework.test.context.ContextConfiguration;
 

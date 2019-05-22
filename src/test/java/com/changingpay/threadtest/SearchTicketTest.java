@@ -1,7 +1,7 @@
 package com.changingpay.threadtest;
 
-import com.changingpay.tspring.business.SearchTicket;
-import com.changingpay.tspring.message.TicketDTO;
+import com.liuxin.tspring.business.SearchTicket;
+import com.liuxin.tspring.message.TicketDTO;
 import com.google.gson.Gson;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
