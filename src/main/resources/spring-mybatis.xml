@@ -60,8 +60,8 @@
 	</bean>
 	
 	<!-- spring与mybatis整合配置，扫描所有dao -->
-	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.changingpay.tspring.dao" />
+	<bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.liuxin.tspring.dao" />
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory" />
 	</bean>
 	
