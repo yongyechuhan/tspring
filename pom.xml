@@ -350,9 +350,9 @@
             </activation>
             <properties>
                 <!-- jdbc配置 -->
-                <jdbc.url><![CDATA[jdbc:mysql:loadbalance://172.16.10.180:60001/information_schema?connectTimeout=6000&loadBalanceBlacklistTimeout=180000&useLocalSessionState=true]]></jdbc.url>
-                <jdbc.username>zj_nrzjad</jdbc.username>
-                <jdbc.password>zj_nrzjad#123</jdbc.password>
+                <jdbc.url><![CDATA[jdbc:mysql:loadbalance://localhost:60001/information_schema?connectTimeout=6000&loadBalanceBlacklistTimeout=180000&useLocalSessionState=true]]></jdbc.url>
+                <jdbc.username>test</jdbc.username>
+                <jdbc.password>test</jdbc.password>
 
                 <!-- 项目地址 -->
                 <base.dir>E:\git_repo\dbop</base.dir>
