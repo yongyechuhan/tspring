@@ -14,7 +14,7 @@ public class JedisFunction {
     @Autowired
     private JedisCluster jedisCluster;
 
-    public void getVal(){
+    public void getVal1(){
         for(int i = 0; i < 50; i++){
             try {
                 Thread.sleep(2000);
