@@ -25,7 +25,7 @@ public class JedisFunction {
         }
     }
 
-    public void getVal2(){
+    public void getVal3(){
         for(int i = 0; i < 100; i++){
             try {
                 Thread.sleep(1000);
