@@ -15,9 +15,9 @@ public class JedisFunction {
     private JedisCluster jedisCluster;
 
     public void getVal(){
-        for(int i = 0; i < 100; i++){
+        for(int i = 0; i < 50; i++){
             try {
-                Thread.sleep(1000);
+                Thread.sleep(2000);
                 logger.info("获取缓存值{},当前请求次数{}", jedisCluster.get("abcuserId"), i);
             } catch (Exception e) {
                 logger.error("获取值失败", e);
