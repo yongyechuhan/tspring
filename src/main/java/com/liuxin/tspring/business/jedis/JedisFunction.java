@@ -24,4 +24,15 @@ public class JedisFunction {
             }
         }
     }
+
+    public void getVal2(){
+        for(int i = 0; i < 100; i++){
+            try {
+                Thread.sleep(1000);
+                logger.info("获取缓存值{},当前请求次数{}", jedisCluster.get("abcuserId"), i);
+            } catch (Exception e) {
+                logger.error("获取值失败", e);
+            }
+        }
+    }
 }
