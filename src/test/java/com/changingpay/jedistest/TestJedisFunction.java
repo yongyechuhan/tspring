@@ -13,9 +13,4 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 public class TestJedisFunction {
     @Autowired
     private JedisFunction jedisFunction;
-
-    @Test
-    public void testExecFunction(){
-        jedisFunction.getVal();
-    }
 }
