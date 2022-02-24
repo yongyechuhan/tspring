@@ -18,7 +18,6 @@ public class RuleExpress {
     @NoArgsConstructor
     public static class RuleExpressIncomeInstance {
         private String express;
-        private String incomeConfig;
         private ExpressIncomeCaculator expressIncomeCaculator;
     }
 

@@ -1,32 +1,19 @@
 package com.liuxin.tspring.engine;
 
-import com.alibaba.fastjson.JSON;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import org.apache.commons.lang3.StringUtils;
 
-import java.util.Objects;
-
+@Data
 public class FixedIncomeCaculator extends ExpressIncomeCaculator {
 
-    FixedIncomeCaculator (String incomeConfig) {
-        super(incomeConfig);
-    }
-
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    public static class FixedIncomeConfig extends IncomeConfig {
-        private String value;
-    }
-
     @Override
-    public String caculateIncome(String countData) throws Exception {
-        FixedIncomeConfig config = JSON.parseObject(incomeConfig, FixedIncomeConfig.class);
-        logger.debug("start caculate income, config is 【{}】", incomeConfig);
-        if (Objects.isNull(config)) {
+    public Double caculateIncome(String countData) throws Exception {
+        String value = getValue();
+        logger.info("start caculate income, value is 【{}】", value);
+        if (StringUtils.isEmpty(value)) {
             throw new Exception("cacluate fixedIncome: parse incomeConfig fail");
         }
-        return config.getValue();
+        logger.info("caculate income end, value is 【{}】", value);
+        return Double.valueOf(value);
     }
 }

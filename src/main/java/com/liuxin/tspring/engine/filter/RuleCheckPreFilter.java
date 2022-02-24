@@ -1,6 +1,6 @@
 package com.liuxin.tspring.engine.filter;
 
-import com.liuxin.tspring.engine.EventActionBean;
+import com.liuxin.tspring.engine.bean.EventActionBean;
 
 import java.util.Objects;
 import java.util.Queue;
