@@ -9,10 +9,6 @@ import java.util.Objects;
 
 public class FixedIncomeCaculator extends ExpressIncomeCaculator {
 
-    FixedIncomeCaculator () {
-        super();
-    }
-
     FixedIncomeCaculator (String incomeConfig) {
         super(incomeConfig);
     }

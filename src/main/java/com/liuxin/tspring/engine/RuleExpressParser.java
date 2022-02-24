@@ -10,6 +10,8 @@ public abstract class RuleExpressParser {
     private String ruleItem;
     private String ruleConfig;
 
+    public static final String COUNT_DATA_KEY = "#countData";
+
     @Data
     public static class RuleConfig {
         private boolean repeat;

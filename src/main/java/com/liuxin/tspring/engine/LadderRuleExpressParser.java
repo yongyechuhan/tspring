@@ -5,19 +5,11 @@ import lombok.Data;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.expression.EvaluationContext;
-import org.springframework.expression.Expression;
-import org.springframework.expression.ExpressionParser;
-import org.springframework.expression.spel.standard.SpelExpressionParser;
-import org.springframework.expression.spel.support.StandardEvaluationContext;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Data
 public class LadderRuleExpressParser extends RuleExpressParser {
-
-    private static final String COUNT_DATA_KEY = "#countData";
 
     private static final Logger logger = LoggerFactory.getLogger(LadderRuleExpressParser.class);
 
@@ -68,38 +60,37 @@ public class LadderRuleExpressParser extends RuleExpressParser {
     }
 
     public static void main(String[] args) {
-        RuleExpressParser expressParser = new LadderRuleExpressParser();
+//        RuleExpressParser expressParser = new LadderRuleExpressParser();
 //        String ruleConfig = "{\"repeat\": true, \"config\": [{\"income\":{\"type\":\"fixed\",\"value\":\"100\"},\"max\":\"100\",\"min\":\"10\"},{\"income\":{\"type\":\"percent\",\"value\":\"80\"},\"max\":\"600\",\"min\":\"200\"},{\"income\":{\"type\":\"fixed\",\"value\":\"200\"}, \"min\":\"1000\"}]}";
-        String ruleConfig = "{\"repeat\": true, \"config\": [{\"income\":{\"type\":\"fixed\",\"value\":\"80\"},\"express\":{\"max\":\"100\",\"min\":\"10\"}}]}";
-        expressParser.setRuleConfig(ruleConfig);
-        List<ExpressGroup> expressGroups = null;
-        RuleExpress ruleExpress = null;
-        try {
-            expressGroups = expressParser.parseRuleExpress();
-            ruleExpress = RuleExpress.build(expressGroups);
-        } catch (Exception e) {
-            logger.error("parse express fail", e);
-        }
-
-        String countData = "-1";
-
-        EvaluationContext context = new StandardEvaluationContext();
-        context.setVariable("countData", Integer.valueOf(countData));
-        ExpressionParser parser = new SpelExpressionParser();
-        for (int i = 0; i < ruleExpress.getExpressList().size(); i++) {
-            RuleExpress.RuleExpressIncomeInstance instance = ruleExpress.getExpressList().get(i);
-            Expression expression = parser.parseExpression(instance.getExpress());
-            logger.info(instance.getExpress());
-            boolean expressResult = expression.getValue(context, boolean.class);
-            logger.info(JSON.toJSONString(expressResult));
-            if (expressResult) {
-                try {
-                    String value = instance.getExpressIncomeCaculator().caculateIncome(countData);
-                    logger.info("激励值：【{}】", value);
-                } catch (Exception e) {
-                    logger.error("caculate income fail", e);
-                }
-            }
-        }
+//        String ruleConfig = "{\"repeat\": true, \"config\": [{\"income\":{\"type\":\"percent\",\"value\":\"80\"},\"express\":{\"max\":\"100\",\"min\":\"10\"}}]}";
+//        expressParser.setRuleConfig(ruleConfig);
+//        List<ExpressGroup> expressGroups = null;
+//        RuleExpress ruleExpress = null;
+//        try {
+//            expressGroups = expressParser.parseRuleExpress();
+//            ruleExpress = RuleExpress.build(expressGroups);
+//        } catch (Exception e) {
+//            logger.error("parse express fail", e);
+//        }
+//
+//        Double countData = 320.2D;
+//
+//        for (int i = 0; i < ruleExpress.getExpressList().size(); i++) {
+//            RuleExpress.RuleExpressIncomeInstance instance = ruleExpress.getExpressList().get(i);
+//            String express = instance.getExpress();
+//            logger.info(express);
+//            boolean expressResult = RuleExpressChecker.check(express, countData);
+//            logger.info(String.valueOf(expressResult));
+//            if (expressResult) {
+//                try {
+//                    String value = instance.getExpressIncomeCaculator().caculateIncome(String.valueOf(countData));
+//                    logger.info("激励值：【{}】", value);
+//                } catch (Exception e) {
+//                    logger.error("caculate income fail", e);
+//                }
+//            }
+//        }
+        RuleEngine ruleEngine = new RuleEngine();
+        ruleEngine.preFilter(new EventActionBean());
     }
 }

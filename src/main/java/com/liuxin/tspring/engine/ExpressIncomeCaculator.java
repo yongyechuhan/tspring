@@ -3,6 +3,7 @@ package com.liuxin.tspring.engine;
 import com.alibaba.fastjson.JSON;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -10,17 +11,13 @@ import org.slf4j.LoggerFactory;
 import java.util.Objects;
 
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public abstract class ExpressIncomeCaculator {
 
     public static final Logger logger = LoggerFactory.getLogger(ExpressIncomeCaculator.class);
 
     protected String incomeConfig;
-
-    public ExpressIncomeCaculator() {}
-
-    public ExpressIncomeCaculator(String incomeConfig) {
-        setIncomeConfig(incomeConfig);
-    }
 
     @Data
     public static class IncomeConfig {

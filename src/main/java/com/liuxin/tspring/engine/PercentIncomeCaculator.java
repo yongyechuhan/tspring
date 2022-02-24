@@ -11,8 +11,6 @@ import java.util.Objects;
 
 public class PercentIncomeCaculator extends ExpressIncomeCaculator {
 
-    public PercentIncomeCaculator() {}
-
     public PercentIncomeCaculator(String incomeConfig) {
         super(incomeConfig);
     }
@@ -39,7 +37,7 @@ public class PercentIncomeCaculator extends ExpressIncomeCaculator {
                 divide(new BigDecimal(100)).setScale(4, RoundingMode.HALF_UP);
         // 计算收益
         BigDecimal income = new BigDecimal(countData);
-        income = income.add(income.multiply(percentVal)).setScale(0, RoundingMode.HALF_UP);
+        income = income.multiply(percentVal).setScale(0, RoundingMode.HALF_UP);
         logger.debug("caculate income end, result data:【{}】", countData);
         return income.toString();
     }
