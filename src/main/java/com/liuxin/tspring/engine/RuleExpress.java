@@ -1,6 +1,7 @@
 package com.liuxin.tspring.engine;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.util.CollectionUtils;
 
 import java.util.*;
@@ -11,15 +12,29 @@ public class RuleExpress {
     private String expressId;
     private int order;
     private Set<String> mutexRules;
-    private List<String> expressList;
+    private List<RuleExpressIncomeInstance> expressList;
 
-    public static RuleExpress build(List<ExpressGroup> expressGroup) {
-        List<String> expressList = expressGroup.stream().map(group -> {
+    @Data
+    @NoArgsConstructor
+    public static class RuleExpressIncomeInstance {
+        private String express;
+        private String incomeConfig;
+        private ExpressIncomeCaculator expressIncomeCaculator;
+    }
+
+    public static RuleExpress build(List<ExpressGroup> expressGroups) {
+        List<RuleExpressIncomeInstance> expressList = new ArrayList<>();
+
+        for (ExpressGroup group : expressGroups) {
+            RuleExpressIncomeInstance instance = new RuleExpressIncomeInstance();
+
             List<ExpressSubGroup> subGroups = group.getSubGroups();
             StringBuffer expressBuffer = new StringBuffer("");
             expressBuffer = buildExpress(expressBuffer, 0, subGroups, group.getConnSymbolQueue());
-            return expressBuffer.toString();
-        }).collect(Collectors.toList());
+            instance.setExpress(expressBuffer.toString());
+            instance.setExpressIncomeCaculator(group.getIncomeCaculator());
+            expressList.add(instance);
+        }
 
         RuleExpress ruleExpress = new RuleExpress();
         ruleExpress.setExpressList(expressList);

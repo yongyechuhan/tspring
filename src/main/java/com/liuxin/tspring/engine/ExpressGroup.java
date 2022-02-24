@@ -14,4 +14,5 @@ import java.util.Queue;
 public class ExpressGroup {
     private List<ExpressSubGroup> subGroups;
     private Map<Integer, Queue<String>> connSymbolQueue;
+    private ExpressIncomeCaculator incomeCaculator;
 }

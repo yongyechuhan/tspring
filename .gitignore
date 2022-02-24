@@ -2,3 +2,5 @@
 /out/
 /.gitignore
 /tspring.iml
+/target/
+*.loggit

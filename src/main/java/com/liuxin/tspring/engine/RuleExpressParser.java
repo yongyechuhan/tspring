@@ -1,10 +1,6 @@
 package com.liuxin.tspring.engine;
 
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -15,12 +11,21 @@ public abstract class RuleExpressParser {
     private String ruleConfig;
 
     @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
     public static class RuleConfig {
         private boolean repeat;
-        private String config;
+        private List<ExpressIncomeConfig> config;
     }
 
-    abstract List<ExpressGroup> parseRuleExpress();
+    @Data
+    public static class ExpressIncomeConfig {
+        private String express;
+        private String income;
+    }
+
+    @Data
+    public static class ExpressConfig {
+        private String type;
+    }
+
+    abstract List<ExpressGroup> parseRuleExpress() throws Exception;
 }
