@@ -1,5 +1,6 @@
-package com.liuxin.tspring.engine;
+package com.liuxin.tspring.engine.bean;
 
+import com.liuxin.tspring.engine.caculator.ExpressIncomeCaculator;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

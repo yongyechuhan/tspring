@@ -1,5 +1,6 @@
-package com.liuxin.tspring.engine;
+package com.liuxin.tspring.engine.parser;
 
+import com.liuxin.tspring.engine.bean.ExpressGroup;
 import lombok.Data;
 
 import java.util.List;
@@ -18,5 +19,5 @@ public abstract class RuleExpressParser {
         private String value;
     }
 
-    abstract List<ExpressGroup> parseRuleExpress() throws Exception;
+    public abstract List<ExpressGroup> parseRuleExpress() throws Exception;
 }
