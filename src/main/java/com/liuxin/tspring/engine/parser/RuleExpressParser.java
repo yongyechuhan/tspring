@@ -7,17 +7,13 @@ import java.util.List;
 
 @Data
 public abstract class RuleExpressParser {
-    private String ruleType;
-    private String ruleItem;
-    private String expressIncomeConfig;
-    private boolean repeat;
-
     public static final String COUNT_DATA_KEY = "#countData";
 
     @Data
     public static class ExpressIncomeConfig {
         private String value;
+        private boolean repeat;
     }
 
-    public abstract List<ExpressGroup> parseRuleExpress() throws Exception;
+    public abstract List<ExpressGroup> parseRuleExpress(String expressIncomeConfig, boolean repeat) throws Exception;
 }

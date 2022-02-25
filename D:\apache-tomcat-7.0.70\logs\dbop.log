@@ -327,3 +327,250 @@ java.lang.NullPointerException
 2022-02-24 17:54:10 169 [INFO] [main] [com.liuxin.tspring.engine.caculator.ExpressIncomeCaculator] start caculate income, value is 【100】
 2022-02-24 17:54:10 169 [INFO] [main] [com.liuxin.tspring.engine.caculator.ExpressIncomeCaculator] caculate income end, value is 【100】
 2022-02-24 17:54:10 171 [INFO] [main] [com.liuxin.tspring.engine.RuleEngine] [0.0,500.0]
+2022-02-24 18:12:34 846 [INFO] [main] [com.liuxin.tspring.engine.parser.LadderRuleExpressParser] "优秀"
+2022-02-24 18:12:51 972 [INFO] [main] [com.liuxin.tspring.engine.parser.LadderRuleExpressParser] "优秀"
+2022-02-24 18:13:29 191 [INFO] [main] [com.liuxin.tspring.engine.parser.LadderRuleExpressParser] false
+2022-02-24 18:13:42 177 [INFO] [main] [com.liuxin.tspring.engine.parser.LadderRuleExpressParser] true
+2022-02-24 18:20:00 967 [INFO] [main] [com.liuxin.tspring.engine.parser.LadderRuleExpressParser] true
+2022-02-24 18:25:58 972 [ERROR] [main] [com.liuxin.tspring.engine.RuleEngine] caculate rule income fail
+com.alibaba.fastjson.JSONException: syntax error, expect {, actual [, pos 1, json : [{"state":"优秀","value":"100"},{"state":"良好","value":"80"},{"state":"及格","value":"60"}]
+	at com.alibaba.fastjson.parser.DefaultJSONParser.parseObject(DefaultJSONParser.java:222)
+	at com.alibaba.fastjson.parser.DefaultJSONParser.parseObject(DefaultJSONParser.java:1079)
+	at com.alibaba.fastjson.parser.DefaultJSONParser.parseObject(DefaultJSONParser.java:1084)
+	at com.alibaba.fastjson.parser.deserializer.MapDeserializer.deserialze(MapDeserializer.java:24)
+	at com.alibaba.fastjson.parser.DefaultJSONParser.parseObject(DefaultJSONParser.java:642)
+	at com.alibaba.fastjson.JSON.parseObject(JSON.java:350)
+	at com.alibaba.fastjson.JSON.parseObject(JSON.java:254)
+	at com.alibaba.fastjson.JSON.parseObject(JSON.java:467)
+	at com.liuxin.tspring.engine.RuleEngine.lambda$engineWork$4(RuleEngine.java:83)
+	at java.util.stream.Collectors.lambda$toMap$58(Collectors.java:1321)
+	at java.util.stream.ReduceOps$3ReducingSink.accept(ReduceOps.java:169)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1384)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at com.liuxin.tspring.engine.RuleEngine.engineWork(RuleEngine.java:76)
+	at com.liuxin.tspring.engine.parser.LadderRuleExpressParser.main(LadderRuleExpressParser.java:89)
+2022-02-24 18:25:58 975 [INFO] [main] [com.liuxin.tspring.engine.RuleEngine] [0.0]
+2022-02-24 18:31:15 178 [ERROR] [main] [com.liuxin.tspring.engine.RuleEngine] caculate rule income fail
+java.lang.NullPointerException
+	at com.liuxin.tspring.engine.bean.RuleExpress.buildExpress(RuleExpress.java:51)
+	at com.liuxin.tspring.engine.bean.RuleExpress.build(RuleExpress.java:33)
+	at com.liuxin.tspring.engine.RuleEngine.lambda$engineWork$4(RuleEngine.java:90)
+	at java.util.stream.Collectors.lambda$toMap$58(Collectors.java:1321)
+	at java.util.stream.ReduceOps$3ReducingSink.accept(ReduceOps.java:169)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1384)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at com.liuxin.tspring.engine.RuleEngine.engineWork(RuleEngine.java:76)
+	at com.liuxin.tspring.engine.parser.LadderRuleExpressParser.main(LadderRuleExpressParser.java:85)
+2022-02-24 18:31:15 181 [INFO] [main] [com.liuxin.tspring.engine.RuleEngine] [0.0]
+2022-02-24 18:32:13 207 [ERROR] [main] [com.liuxin.tspring.engine.RuleEngine] caculate rule income fail
+java.lang.NullPointerException
+	at com.liuxin.tspring.engine.bean.RuleExpress.buildExpress(RuleExpress.java:73)
+	at com.liuxin.tspring.engine.bean.RuleExpress.build(RuleExpress.java:33)
+	at com.liuxin.tspring.engine.RuleEngine.lambda$engineWork$4(RuleEngine.java:90)
+	at java.util.stream.Collectors.lambda$toMap$58(Collectors.java:1321)
+	at java.util.stream.ReduceOps$3ReducingSink.accept(ReduceOps.java:169)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1384)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at com.liuxin.tspring.engine.RuleEngine.engineWork(RuleEngine.java:76)
+	at com.liuxin.tspring.engine.parser.LadderRuleExpressParser.main(LadderRuleExpressParser.java:85)
+2022-02-24 18:32:13 210 [INFO] [main] [com.liuxin.tspring.engine.RuleEngine] [0.0]
+2022-02-24 18:33:26 469 [ERROR] [main] [com.liuxin.tspring.engine.RuleEngine] caculate rule income fail
+java.lang.NumberFormatException: For input string: "优秀"
+	at sun.misc.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2043)
+	at sun.misc.FloatingDecimal.parseDouble(FloatingDecimal.java:110)
+	at java.lang.Double.parseDouble(Double.java:538)
+	at java.lang.Double.valueOf(Double.java:502)
+	at com.liuxin.tspring.engine.RuleEngine.lambda$null$1(RuleEngine.java:93)
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:174)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1384)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at com.liuxin.tspring.engine.RuleEngine.lambda$engineWork$4(RuleEngine.java:102)
+	at java.util.stream.Collectors.lambda$toMap$58(Collectors.java:1321)
+	at java.util.stream.ReduceOps$3ReducingSink.accept(ReduceOps.java:169)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1384)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at com.liuxin.tspring.engine.RuleEngine.engineWork(RuleEngine.java:76)
+	at com.liuxin.tspring.engine.parser.LadderRuleExpressParser.main(LadderRuleExpressParser.java:85)
+2022-02-24 18:33:26 472 [INFO] [main] [com.liuxin.tspring.engine.RuleEngine] [0.0]
+2022-02-24 18:36:04 053 [INFO] [main] [com.liuxin.tspring.engine.caculator.ExpressIncomeCaculator] start caculate income, value is 【100】
+2022-02-24 18:36:04 057 [INFO] [main] [com.liuxin.tspring.engine.caculator.ExpressIncomeCaculator] caculate income end, value is 【100】
+2022-02-24 18:36:04 061 [INFO] [main] [com.liuxin.tspring.engine.RuleEngine] [100.0]
+2022-02-24 18:37:54 262 [INFO] [main] [com.liuxin.tspring.engine.caculator.ExpressIncomeCaculator] start caculate income, value is 【80】
+2022-02-24 18:37:54 265 [INFO] [main] [com.liuxin.tspring.engine.caculator.ExpressIncomeCaculator] caculate income end, value is 【80】
+2022-02-24 18:37:54 268 [INFO] [main] [com.liuxin.tspring.engine.RuleEngine] [80.0]
+2022-02-24 18:38:04 963 [INFO] [main] [com.liuxin.tspring.engine.RuleEngine] [0.0]
+2022-02-24 18:38:27 801 [ERROR] [main] [com.liuxin.tspring.engine.RuleEngine] caculate rule income fail
+org.springframework.expression.spel.SpelEvaluationException: EL1013E:(pos 16): Cannot compare instances of class java.lang.String and class java.lang.Integer
+	at org.springframework.expression.spel.support.StandardTypeComparator.compare(StandardTypeComparator.java:83)
+	at org.springframework.expression.spel.ast.OpGT.getValueInternal(OpGT.java:50)
+	at org.springframework.expression.spel.ast.OpGT.getValueInternal(OpGT.java:29)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:134)
+	at org.springframework.expression.spel.ast.OpAnd.getBooleanValue(OpAnd.java:51)
+	at org.springframework.expression.spel.ast.OpAnd.getValueInternal(OpAnd.java:42)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:134)
+	at org.springframework.expression.spel.ast.OpOr.getBooleanValue(OpOr.java:50)
+	at org.springframework.expression.spel.ast.OpOr.getValueInternal(OpOr.java:41)
+	at org.springframework.expression.spel.ast.OpOr.getValueInternal(OpOr.java:33)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getTypedValue(SpelNodeImpl.java:102)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:98)
+	at com.liuxin.tspring.engine.RuleExpressChecker.check(RuleExpressChecker.java:30)
+	at com.liuxin.tspring.engine.RuleEngine.lambda$null$1(RuleEngine.java:93)
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:174)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1384)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at com.liuxin.tspring.engine.RuleEngine.lambda$engineWork$4(RuleEngine.java:102)
+	at java.util.stream.Collectors.lambda$toMap$58(Collectors.java:1321)
+	at java.util.stream.ReduceOps$3ReducingSink.accept(ReduceOps.java:169)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1384)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at com.liuxin.tspring.engine.RuleEngine.engineWork(RuleEngine.java:76)
+	at com.liuxin.tspring.engine.parser.LadderRuleExpressParser.main(LadderRuleExpressParser.java:85)
+Caused by: java.lang.ClassCastException: java.lang.Integer cannot be cast to java.lang.String
+	at java.lang.String.compareTo(String.java:111)
+	at org.springframework.expression.spel.support.StandardTypeComparator.compare(StandardTypeComparator.java:79)
+	... 31 more
+2022-02-24 18:38:27 804 [ERROR] [main] [com.liuxin.tspring.engine.RuleEngine] caculate rule income fail
+org.springframework.expression.spel.SpelEvaluationException: EL1013E:(pos 11): Cannot compare instances of class java.lang.String and class java.lang.Integer
+	at org.springframework.expression.spel.support.StandardTypeComparator.compare(StandardTypeComparator.java:83)
+	at org.springframework.expression.spel.ast.OpGT.getValueInternal(OpGT.java:50)
+	at org.springframework.expression.spel.ast.OpGT.getValueInternal(OpGT.java:29)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:134)
+	at org.springframework.expression.spel.ast.OpAnd.getBooleanValue(OpAnd.java:51)
+	at org.springframework.expression.spel.ast.OpAnd.getValueInternal(OpAnd.java:42)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getTypedValue(SpelNodeImpl.java:102)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:98)
+	at com.liuxin.tspring.engine.RuleExpressChecker.check(RuleExpressChecker.java:30)
+	at com.liuxin.tspring.engine.RuleEngine.lambda$null$1(RuleEngine.java:93)
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:174)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1384)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at com.liuxin.tspring.engine.RuleEngine.lambda$engineWork$4(RuleEngine.java:102)
+	at java.util.stream.Collectors.lambda$toMap$58(Collectors.java:1321)
+	at java.util.stream.ReduceOps$3ReducingSink.accept(ReduceOps.java:169)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1384)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at com.liuxin.tspring.engine.RuleEngine.engineWork(RuleEngine.java:76)
+	at com.liuxin.tspring.engine.parser.LadderRuleExpressParser.main(LadderRuleExpressParser.java:85)
+Caused by: java.lang.ClassCastException: java.lang.Integer cannot be cast to java.lang.String
+	at java.lang.String.compareTo(String.java:111)
+	at org.springframework.expression.spel.support.StandardTypeComparator.compare(StandardTypeComparator.java:79)
+	... 27 more
+2022-02-24 18:38:27 846 [INFO] [main] [com.liuxin.tspring.engine.RuleEngine] [0.0,0.0,0.0]
+2022-02-24 18:41:54 842 [ERROR] [main] [com.liuxin.tspring.engine.RuleEngine] caculate rule income fail
+org.springframework.expression.spel.SpelEvaluationException: EL1013E:(pos 16): Cannot compare instances of class java.lang.String and class java.lang.Integer
+	at org.springframework.expression.spel.support.StandardTypeComparator.compare(StandardTypeComparator.java:83)
+	at org.springframework.expression.spel.ast.OpGT.getValueInternal(OpGT.java:50)
+	at org.springframework.expression.spel.ast.OpGT.getValueInternal(OpGT.java:29)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:134)
+	at org.springframework.expression.spel.ast.OpAnd.getBooleanValue(OpAnd.java:51)
+	at org.springframework.expression.spel.ast.OpAnd.getValueInternal(OpAnd.java:42)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:134)
+	at org.springframework.expression.spel.ast.OpOr.getBooleanValue(OpOr.java:50)
+	at org.springframework.expression.spel.ast.OpOr.getValueInternal(OpOr.java:41)
+	at org.springframework.expression.spel.ast.OpOr.getValueInternal(OpOr.java:33)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getTypedValue(SpelNodeImpl.java:102)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:98)
+	at com.liuxin.tspring.engine.RuleExpressChecker.check(RuleExpressChecker.java:30)
+	at com.liuxin.tspring.engine.RuleEngine.lambda$null$1(RuleEngine.java:93)
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:174)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1384)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at com.liuxin.tspring.engine.RuleEngine.lambda$engineWork$4(RuleEngine.java:102)
+	at java.util.stream.Collectors.lambda$toMap$58(Collectors.java:1321)
+	at java.util.stream.ReduceOps$3ReducingSink.accept(ReduceOps.java:169)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1384)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at com.liuxin.tspring.engine.RuleEngine.engineWork(RuleEngine.java:76)
+	at com.liuxin.tspring.engine.parser.LadderRuleExpressParser.main(LadderRuleExpressParser.java:85)
+Caused by: java.lang.ClassCastException: java.lang.Integer cannot be cast to java.lang.String
+	at java.lang.String.compareTo(String.java:111)
+	at org.springframework.expression.spel.support.StandardTypeComparator.compare(StandardTypeComparator.java:79)
+	... 31 more
+2022-02-24 18:42:01 391 [ERROR] [main] [com.liuxin.tspring.engine.RuleEngine] caculate rule income fail
+org.springframework.expression.spel.SpelEvaluationException: EL1013E:(pos 11): Cannot compare instances of class java.lang.String and class java.lang.Integer
+	at org.springframework.expression.spel.support.StandardTypeComparator.compare(StandardTypeComparator.java:83)
+	at org.springframework.expression.spel.ast.OpGT.getValueInternal(OpGT.java:50)
+	at org.springframework.expression.spel.ast.OpGT.getValueInternal(OpGT.java:29)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getValue(SpelNodeImpl.java:134)
+	at org.springframework.expression.spel.ast.OpAnd.getBooleanValue(OpAnd.java:51)
+	at org.springframework.expression.spel.ast.OpAnd.getValueInternal(OpAnd.java:42)
+	at org.springframework.expression.spel.ast.SpelNodeImpl.getTypedValue(SpelNodeImpl.java:102)
+	at org.springframework.expression.spel.standard.SpelExpression.getValue(SpelExpression.java:98)
+	at com.liuxin.tspring.engine.RuleExpressChecker.check(RuleExpressChecker.java:30)
+	at com.liuxin.tspring.engine.RuleEngine.lambda$null$1(RuleEngine.java:93)
+	at java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:174)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1384)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at com.liuxin.tspring.engine.RuleEngine.lambda$engineWork$4(RuleEngine.java:102)
+	at java.util.stream.Collectors.lambda$toMap$58(Collectors.java:1321)
+	at java.util.stream.ReduceOps$3ReducingSink.accept(ReduceOps.java:169)
+	at java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1384)
+	at java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:482)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:472)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:708)
+	at java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:499)
+	at com.liuxin.tspring.engine.RuleEngine.engineWork(RuleEngine.java:76)
+	at com.liuxin.tspring.engine.parser.LadderRuleExpressParser.main(LadderRuleExpressParser.java:85)
+Caused by: java.lang.ClassCastException: java.lang.Integer cannot be cast to java.lang.String
+	at java.lang.String.compareTo(String.java:111)
+	at org.springframework.expression.spel.support.StandardTypeComparator.compare(StandardTypeComparator.java:79)
+	... 27 more
+2022-02-24 18:42:01 449 [INFO] [main] [com.liuxin.tspring.engine.RuleEngine] [0.0,0.0,0.0]
+2022-02-24 18:52:59 298 [INFO] [main] [com.liuxin.tspring.engine.RuleEngine] [0.0,0.0,0.0]
+2022-02-24 18:53:13 648 [INFO] [main] [com.liuxin.tspring.engine.caculator.ExpressIncomeCaculator] start caculate income, value is 【80】
+2022-02-24 18:53:13 648 [INFO] [main] [com.liuxin.tspring.engine.caculator.ExpressIncomeCaculator] caculate income end, value is 【80】
+2022-02-24 18:53:13 651 [INFO] [main] [com.liuxin.tspring.engine.RuleEngine] [80.0,0.0,0.0]
+2022-02-24 18:53:29 368 [INFO] [main] [com.liuxin.tspring.engine.caculator.ExpressIncomeCaculator] start caculate income, config is 【80】%
+2022-02-24 18:53:29 370 [INFO] [main] [com.liuxin.tspring.engine.caculator.ExpressIncomeCaculator] caculate income end, income:【80】
+2022-02-24 18:53:29 371 [INFO] [main] [com.liuxin.tspring.engine.caculator.ExpressIncomeCaculator] start caculate income, config is 【90】%
+2022-02-24 18:53:29 371 [INFO] [main] [com.liuxin.tspring.engine.caculator.ExpressIncomeCaculator] caculate income end, income:【90】
+2022-02-24 18:53:29 404 [INFO] [main] [com.liuxin.tspring.engine.RuleEngine] [0.0,90.0,80.0]

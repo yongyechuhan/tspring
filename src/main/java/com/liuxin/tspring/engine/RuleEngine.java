@@ -1,6 +1,7 @@
 package com.liuxin.tspring.engine;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.liuxin.tspring.engine.bean.EventActionBean;
 import com.liuxin.tspring.engine.bean.ExpressGroup;
 import com.liuxin.tspring.engine.bean.RuleExpress;
@@ -78,21 +79,18 @@ public class RuleEngine {
                 // 获取奖励类型对应的规则解析器
                 RuleExpressParser expressParser = RuleFactory.getInstance(RuleExpressParser.class.getName(),
                         ruleConfig.getConfig().getType());
-                // 将奖励配置设置到解析器中
-                expressParser.setExpressIncomeConfig(ruleConfig.getConfig().getExpress());
-                expressParser.setRepeat(ruleConfig.isRepeat());
-
                 // 执行解析,构造引擎需要的表达式结构，并设置表达式对应的激励计算对象
-                List<ExpressGroup> expressGroups = expressParser.parseRuleExpress();
+                List<ExpressGroup> expressGroups =
+                        expressParser.parseRuleExpress(ruleConfig.getConfig().getExpress(), ruleConfig.isRepeat());
                 if (CollectionUtils.isEmpty(expressGroups)) {
                     logger.error("parse express groups with rule {} fail", rule);
                     return 0D;
                 }
                 // 构造可执行的表达式处理对象
-                RuleExpress ruleExpress = RuleExpress.build(expressParser.parseRuleExpress());
+                RuleExpress ruleExpress = RuleExpress.build(expressGroups);
                 // 校验表达式是否成立，累计所有成立表达式的收益
                 return ruleExpress.getExpressList().stream().filter(express ->
-                        RuleExpressChecker.check(express.getExpress(), Double.valueOf(eventAction.getData()))
+                        RuleExpressChecker.check(express.getExpress(), eventAction.getData())
                 ).map(express -> {
                     try {
                         return express.getExpressIncomeCaculator().
